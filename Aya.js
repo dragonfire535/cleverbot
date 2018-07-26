@@ -13,7 +13,6 @@ client.on('ready', () => {
 client.on('message', async msg => {
 	if ((msg.channel.type === 'text' && !msg.mentions.has(client.user.id)) || msg.author.bot) return;
 	msg.channel.startTyping().catch(() => msg.channel.stopTyping());
-	console.log(msg.content.replace(mentionRegex, '').trim());
 	try {
 		const { body } = await request
 			.get('https://www.cleverbot.com/getreply')
