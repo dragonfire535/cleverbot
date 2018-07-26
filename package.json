@@ -1,0 +1,50 @@
+{
+	"name": "aya",
+	"version": "1.0.0",
+	"description": "Another Discord Cleverbot.",
+	"main": "Aya.js",
+	"scripts": {
+		"test": "npm run lint",
+		"lint": "eslint . --ext .js --ext .json",
+		"start": "node Aya.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dragonfire535/aya.git"
+	},
+	"keywords": [
+		"bot",
+		"commando",
+		"discord",
+		"discord-api",
+		"discord-bot",
+		"discord-js",
+		"discord-js-commando"
+	],
+	"author": "dragonfire535 <danielbodendahl@gmail.com>",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/dragonfire535/aya/issues"
+	},
+	"homepage": "https://github.com/dragonfire535/aya#readme",
+	"engines": {
+		"node": ">=10.1.0"
+	},
+	"dependencies": {
+		"discord.js": "github:discordjs/discord.js",
+		"erlpack": "^0.1.2",
+		"node-superfetch": "^0.1.3",
+		"zlib-sync": "^0.1.4"
+	},
+	"devDependencies": {
+		"eslint": "^5.2.0",
+		"eslint-config-amber": "^1.0.3",
+		"eslint-plugin-json": "^1.2.0"
+	},
+	"eslintConfig": {
+		"extends": "amber",
+		"plugins": [
+			"json"
+		]
+	}
+}
