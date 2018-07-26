@@ -14,12 +14,11 @@
 	},
 	"keywords": [
 		"bot",
-		"commando",
+		"cleverbot",
 		"discord",
 		"discord-api",
 		"discord-bot",
-		"discord-js",
-		"discord-js-commando"
+		"discord-js"
 	],
 	"author": "dragonfire535 <danielbodendahl@gmail.com>",
 	"license": "GPL-3.0",
