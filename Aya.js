@@ -2,12 +2,18 @@ const { AYA_TOKEN, CLEVERBOT_KEY } = process.env;
 const { Client } = require('discord.js');
 const request = require('node-superfetch');
 const client = new Client({ disableEveryone: true });
+const activities = require('./assets/json/activity');
+const blankResponses = require('./assets/json/blank-responses');
 const convos = new Map();
 let mentionRegex;
 
 client.on('ready', () => {
 	console.log(`[READY] Logged in as ${client.user.tag}! (${client.user.id})`);
 	mentionRegex = new RegExp(`<@!?${client.user.id}>`);
+	client.setInterval(() => {
+		const activity = activities[Math.floor(Math.random() * activities.length)];
+		client.user.setActivity(activity.text, { type: activity.type });
+	}, 60000);
 });
 
 client.on('message', async msg => {
@@ -22,7 +28,7 @@ client.on('message', async msg => {
 				input: msg.content.replace(mentionRegex, '').trim()
 			});
 		convos.set(msg.author.id, body.cs);
-		await msg.reply(body.output);
+		await msg.reply(body.output || blankResponses[Math.floor(Math.random() * blankResponses.length)]);
 	} catch (err) {
 		await msg.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
 	} finally {
