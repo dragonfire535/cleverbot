@@ -36,9 +36,9 @@
 		"zlib-sync": "^0.1.4"
 	},
 	"devDependencies": {
-		"eslint": "^5.2.0",
-		"eslint-config-amber": "^1.0.3",
-		"eslint-plugin-json": "^1.2.0"
+		"eslint": "^5.3.0",
+		"eslint-config-amber": "^1.0.4",
+		"eslint-plugin-json": "^1.2.1"
 	},
 	"eslintConfig": {
 		"extends": "amber",
