@@ -1,22 +1,22 @@
 [
 	{
-		"text": "with Yoko",
-		"type": "PLAYING"
-	},
-	{
-		"text": "with Karen",
-		"type": "PLAYING"
-	},
-	{
-		"text": "with Shino",
-		"type": "PLAYING"
-	},
-	{
-		"text": "with Alice",
-		"type": "PLAYING"
-	},
-	{
-		"text": "KINMOZA!",
+		"text": "you type",
 		"type": "WATCHING"
+	},
+	{
+		"text": "you",
+		"type": "WATCHING"
+	},
+	{
+		"text": "your server",
+		"type": "WATCHING"
+	},
+	{
+		"text": "for messages",
+		"type": "WATCHING"
+	},
+	{
+		"text": "with you",
+		"type": "PLAYING"
 	}
 ]

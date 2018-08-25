@@ -1,16 +1,16 @@
 {
-	"name": "aya",
-	"version": "1.0.1",
+	"name": "cleverbot",
+	"version": "1.0.2",
 	"description": "Another Discord Cleverbot.",
-	"main": "Aya.js",
+	"main": "Cleverbot.js",
 	"scripts": {
 		"test": "npm run lint",
 		"lint": "eslint . --ext .js --ext .json",
-		"start": "node Aya.js"
+		"start": "node Cleverbot.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dragonfire535/aya.git"
+		"url": "git+https://github.com/dragonfire535/cleverbot.git"
 	},
 	"keywords": [
 		"bot",
@@ -23,9 +23,9 @@
 	"author": "dragonfire535 <danielbodendahl@gmail.com>",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://github.com/dragonfire535/aya/issues"
+		"url": "https://github.com/dragonfire535/cleverbot/issues"
 	},
-	"homepage": "https://github.com/dragonfire535/aya#readme",
+	"homepage": "https://github.com/dragonfire535/cleverbot#readme",
 	"engines": {
 		"node": ">=10.1.0"
 	},

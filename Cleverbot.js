@@ -1,4 +1,4 @@
-const { AYA_TOKEN, CLEVERBOT_KEY } = process.env;
+const { CLEVERBOT_TOKEN, CLEVERBOT_KEY } = process.env;
 const { Client } = require('discord.js');
 const request = require('node-superfetch');
 const client = new Client({ disableEveryone: true });
@@ -45,7 +45,7 @@ client.on('error', err => console.error('[ERROR]', err));
 
 client.on('warn', err => console.warn('[WARNING]', err));
 
-client.login(AYA_TOKEN);
+client.login(CLEVERBOT_TOKEN);
 
 process.on('unhandledRejection', err => {
 	console.error('[FATAL] Unhandled Promise Rejection.', err);
