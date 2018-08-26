@@ -30,6 +30,7 @@
 		"node": ">=10.1.0"
 	},
 	"dependencies": {
+		"@discordjs/uws": "^10.149.0",
 		"discord.js": "github:discordjs/discord.js",
 		"erlpack": "github:discordapp/erlpack",
 		"node-superfetch": "^0.1.4",
