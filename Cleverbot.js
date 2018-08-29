@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { CLEVERBOT_TOKEN, CLEVERBOT_KEY } = process.env;
 const { Client } = require('discord.js');
 const request = require('node-superfetch');
