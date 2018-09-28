@@ -21,14 +21,17 @@ client.on('message', async msg => {
 	if ((msg.channel.type === 'text' && !msg.mentions.has(client.user.id)) || msg.author.bot) return;
 	msg.channel.startTyping().catch(() => msg.channel.stopTyping());
 	try {
+		const convo = convos.get(msg.channel.id);
 		const { body } = await request
 			.get('https://www.cleverbot.com/getreply')
 			.query({
 				key: CLEVERBOT_KEY,
-				cs: convos.get(msg.author.id),
+				cs: convo ? convo.cs : '',
 				input: msg.content.replace(mentionRegex, '').trim()
 			});
-		convos.set(msg.author.id, body.cs);
+		if (convo) clearTimeout(convo.timeout);
+		const timeout = setTimeout(() => convos.delete(msg.channel.id), 600000);
+		convos.set(msg.channel.id, { cs: body.cs, timeout });
 		await msg.reply(body.output || blankResponses[Math.floor(Math.random() * blankResponses.length)]);
 	} catch (err) {
 		await msg.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
