@@ -2,14 +2,22 @@ require('dotenv').config();
 const { CLEVERBOT_TOKEN, CLEVERBOT_KEY } = process.env;
 const { Client } = require('discord.js');
 const request = require('node-superfetch');
+const winston = require('winston');
 const client = new Client({ disableEveryone: true });
 const activities = require('./assets/json/activity');
 const blankResponses = require('./assets/json/blank-responses');
+const logger = winston.createLogger({
+	transports: [new winston.transports.Console()],
+	format: winston.format.combine(
+		winston.format.timestamp({ format: 'MM/DD/YYYY HH:mm:ss' }),
+		winston.format.printf(log => `[${log.timestamp}] [${log.level.toUpperCase()}]: ${log.message}`)
+	)
+});
 const convos = new Map();
 let mentionRegex;
 
 client.on('ready', () => {
-	console.log(`[READY] Logged in as ${client.user.tag}! (${client.user.id})`);
+	logger.info(`[READY] Logged in as ${client.user.tag}! ID: ${client.user.id}`);
 	mentionRegex = new RegExp(`<@!?${client.user.id}>`);
 	client.setInterval(() => {
 		const activity = activities[Math.floor(Math.random() * activities.length)];
@@ -41,17 +49,12 @@ client.on('message', async msg => {
 });
 
 client.on('disconnect', event => {
-	console.error(`[DISCONNECT] Disconnected with code ${event.code}.`);
+	logger.error(`[DISCONNECT] Disconnected with code ${event.code}.`);
 	process.exit(0);
 });
 
-client.on('error', err => console.error('[ERROR]', err));
+client.on('error', err => logger.error(err));
 
-client.on('warn', err => console.warn('[WARNING]', err));
+client.on('warn', warn => logger.warn(warn));
 
 client.login(CLEVERBOT_TOKEN);
-
-process.on('unhandledRejection', err => {
-	console.error('[FATAL] Unhandled Promise Rejection.', err);
-	process.exit(1);
-});
