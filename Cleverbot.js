@@ -4,7 +4,7 @@ const { Client } = require('discord.js');
 const request = require('node-superfetch');
 const winston = require('winston');
 const client = new Client({ disableEveryone: true });
-const blankResponses = require('./assets/json/blank-responses');
+const blankResponses = ['What?', 'Huh?', 'I don\'t understand.'];
 const logger = winston.createLogger({
 	transports: [new winston.transports.Console()],
 	format: winston.format.combine(
