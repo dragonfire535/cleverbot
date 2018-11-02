@@ -4,7 +4,6 @@ const { Client } = require('discord.js');
 const request = require('node-superfetch');
 const winston = require('winston');
 const client = new Client({ disableEveryone: true });
-const activities = require('./assets/json/activity');
 const blankResponses = require('./assets/json/blank-responses');
 const logger = winston.createLogger({
 	transports: [new winston.transports.Console()],
@@ -19,10 +18,6 @@ let mentionRegex;
 client.on('ready', () => {
 	logger.info(`[READY] Logged in as ${client.user.tag}! ID: ${client.user.id}`);
 	mentionRegex = new RegExp(`<@!?${client.user.id}>`);
-	client.setInterval(() => {
-		const activity = activities[Math.floor(Math.random() * activities.length)];
-		client.user.setActivity(activity.text, { type: activity.type });
-	}, 60000);
 });
 
 client.on('message', async msg => {

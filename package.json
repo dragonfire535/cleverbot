@@ -1,6 +1,6 @@
 {
 	"name": "cleverbot",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Another Discord Cleverbot.",
 	"main": "Cleverbot.js",
 	"scripts": {
