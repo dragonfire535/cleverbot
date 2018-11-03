@@ -22,7 +22,6 @@ client.on('ready', () => {
 
 client.on('message', async msg => {
 	if ((msg.channel.type === 'text' && !msg.mentions.has(client.user.id)) || msg.author.bot) return;
-	msg.channel.startTyping().catch(() => msg.channel.stopTyping());
 	try {
 		const convo = convos.get(msg.channel.id);
 		const { body } = await request
@@ -38,8 +37,6 @@ client.on('message', async msg => {
 		await msg.reply(body.output || blankResponses[Math.floor(Math.random() * blankResponses.length)]);
 	} catch (err) {
 		await msg.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
-	} finally {
-		msg.channel.stopTyping();
 	}
 });
 
