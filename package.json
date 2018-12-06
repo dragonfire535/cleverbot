@@ -32,7 +32,7 @@
 	"dependencies": {
 		"@discordjs/uws": "^11.149.1",
 		"discord.js": "github:discordjs/discord.js",
-		"dotenv": "^6.1.0",
+		"dotenv": "^6.2.0",
 		"erlpack": "github:discordapp/erlpack",
 		"node-superfetch": "^0.1.9",
 		"winston": "^3.1.0",
