@@ -35,7 +35,7 @@
 		"dotenv": "^6.2.0",
 		"erlpack": "github:discordapp/erlpack",
 		"node-superfetch": "^0.1.9",
-		"winston": "^3.1.0",
+		"winston": "^3.2.1",
 		"zlib-sync": "^0.1.4"
 	},
 	"devDependencies": {
